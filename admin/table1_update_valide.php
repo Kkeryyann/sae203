@@ -21,7 +21,7 @@
                 $prix=$_POST['prix'];
                 $numdesigner=$_POST['designer'];
 
-                $mabd = new PDO('mysql:host=localhost;dbname=sae203Base;charset=UTF8;', 'sae203User', 'un0mdp1trotro2dur3a4Touver)');
+                $mabd = new PDO('mysql:host=sae203-bd-mpp9yr;dbname=sae203Base;charset=UTF8;', 'sae203User', 'X4bRPsfIJn7A7yJOadRX');
                 $mabd->query('SET NAMES utf8;');
 
                 
