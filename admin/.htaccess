@@ -1,5 +1,1 @@
-DirectoryIndex admin.php
 
-RewriteEngine On
-RewriteRule voitures /var/www/html/sae203/admin/table1_gestion.php
-RewriteRule designers /var/www/html/sae203/admin/table2_gestion.php
