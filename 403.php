@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accès Interdit - Ferrari SAE 203</title>
     <style>
-        /* Reset et base */
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .error-code {
@@ -21,26 +19,30 @@
 
         /* Bouton Retour */
         .btn-retour {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #f1f1f1;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            transition: 0.3s;
-            text-transform: uppercase;
+            background-color: black;
+            border: 2px solid #c4151c;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition-duration: 0.3s;
         }
 
         .btn-retour:hover {
-            background-color: #cc0000;
-            color: #fff;
-            border-color: #cc0000;
+            background-color: #c4151c;
+            border: 2px solid black;
+            transition-duration: 0.3s;
         }
     </style>
 </head>
 <body>
+    
+    <?php
+        // Appel du bloc Header et du Menu
+        require ('header.php');
+    ?>
+
     <div class="content">
         <h1 class="error-code">403</h1>
         <h1>Accès Privé</h1>
@@ -48,5 +50,10 @@
         
         <a href="/" class="btn-retour">Retour à l'accueil</a>
     </div>
+
+   <?php
+        // Appel du bloc Footer et du Menu
+        require ('footer.php');
+    ?>
 </body>
 </html>
