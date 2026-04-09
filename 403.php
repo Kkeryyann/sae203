@@ -15,24 +15,31 @@
         .content {
             display: flex;
             flex-direction: column;
+            width: -webkit-fill-available;
+            align-items: center;
+            padding: 20px;
+            min-height: 64vh;
         }
         
         /* Bouton Retour */
         .btn-retour {
             background-color: black;
             border: 2px solid #c4151c;
-            border-radius: 3px;
+            border-radius: 5px;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
             transition-duration: 0.3s;
         }
 
         .btn-retour:hover {
-            background-color: #c4151c;
-            border: 2px solid black;
+            background-color: white;
+            color: black;
             transition-duration: 0.3s;
         }
     </style>
