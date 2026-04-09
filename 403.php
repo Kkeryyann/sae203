@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accès Interdit - Ferrari SAE 203</title>
     <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
         .error-code {
-            color: #cc0000;
+            color: #c4151c;
             font-weight: bold;
         }
 
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+        
         /* Bouton Retour */
         .btn-retour {
             background-color: black;
             border: 2px solid #c4151c;
+            border-radius: 3px;
             font-weight: 600;
             display: flex;
             align-items: center;
