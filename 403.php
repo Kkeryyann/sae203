@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accès Interdit - Ferrari SAE 203</title>
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Accès Interdit</title>
     <style>
 
         .error-code {
@@ -16,8 +17,8 @@
             display: flex;
             flex-direction: column;
             width: -webkit-fill-available;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
         }
         
         /* Bouton Retour */
@@ -45,12 +46,6 @@
     </style>
 </head>
 <body>
-    
-    <?php
-        // Appel du bloc Header et du Menu
-        require ('header.php');
-    ?>
-
     <div class="content">
         <h1 class="error-code">403</h1>
         <h1>Accès Privé</h1>
@@ -58,10 +53,5 @@
         
         <a href="/" class="btn-retour">Retour à l'accueil</a>
     </div>
-
-   <?php
-        // Appel du bloc Footer et du Menu
-        require ('footer.php');
-    ?>
 </body>
 </html>
