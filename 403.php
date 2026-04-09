@@ -18,7 +18,6 @@
             width: -webkit-fill-available;
             align-items: center;
             padding: 20px;
-            min-height: 64vh;
         }
         
         /* Bouton Retour */
@@ -35,6 +34,7 @@
             color: white;
             text-decoration: none;
             transition-duration: 0.3s;
+            margin-top: 50px;
         }
 
         .btn-retour:hover {
