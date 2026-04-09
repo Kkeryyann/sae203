@@ -21,6 +21,7 @@
         }
 
         .content {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             width: -webkit-fill-available;
