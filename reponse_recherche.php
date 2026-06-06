@@ -1,5 +1,9 @@
 
         <?php
+            $username = getenv('DB_USER');
+            $password = getenv('DB_PASSWORD');
+            $dbname = getenv('DB_NAME');
+
             // Appel du bloc Header et du Menu
             require ('header.php');
         ?>
@@ -37,7 +41,7 @@
 
                 $texteAchercher =$_GET['recherche'];
 
-                $mabd = new PDO('mysql:host=sae203-bd-mpp9yr;dbname=sae203Base;charset=UTF8;', 'sae203User', 'X4bRPsfIJn7A7yJOadRX');
+                $mabd = new PDO('mysql:host=sae203-bd-mpp9yr;dbname=' . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASSWORD'));
                 $mabd->query('SET NAMES utf8;');
                 //$req= 'SELECT * FROM Voitures WHERE voiture_modele LIKE "%'.$texteAchercher .'%" ';
                 $req= 'SELECT Voitures.*, Designer.* 
