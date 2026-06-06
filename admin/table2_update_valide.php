@@ -1,4 +1,8 @@
     <?php
+		 $username = getenv('DB_USER');
+         $password = getenv('DB_PASSWORD');
+         $dbname = getenv('DB_NAME');
+
         require ('../header.php');
     ?>
 
@@ -19,7 +23,7 @@
 			$prenom=$_POST['prenom'];
 			$nationalite=$_POST['nationalite'];
 
-            $mabd = new PDO('mysql:host=sae203-bd-mpp9yr;dbname=sae203Base;charset=UTF8;', 'sae203User', 'X4bRPsfIJn7A7yJOadRX');
+            $mabd = new PDO('mysql:host=sae203-bd-mpp9yr;dbname=' . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASSWORD'));
             $mabd->query('SET NAMES utf8;');
             $req = 'UPDATE Designer SET designer_nom="'.$nom.'", designer_prenom="'.$prenom.'", designer_nationalite="'.$nationalite.'" WHERE designer_id='.$id;
 
