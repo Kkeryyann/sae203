@@ -1,4 +1,3 @@
-
         <?php
             $username = getenv('DB_USER');
             $password = getenv('DB_PASSWORD');
@@ -33,7 +32,7 @@
                 }
     
                 $recherche = $_GET['recherche'];
-                $recherche_verif = filter_var( $recherche , FILTER_SANITIZE_STRIPPED);
+                $recherche_verif = htmlspecialchars(strip_tags($recherche), ENT_QUOTES, 'UTF-8');
                 if($recherche_verif==null) {
                     header('Location: form_recherche.php?erreur=1');
                 } 
@@ -44,23 +43,24 @@
                 $mabd = new PDO('mysql:host=sae203-bd-mpp9yr;dbname=' . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASSWORD'));
                 $mabd->query('SET NAMES utf8;');
                 //$req= 'SELECT * FROM Voitures WHERE voiture_modele LIKE "%'.$texteAchercher .'%" ';
-                $req= 'SELECT Voitures.*, Designer.* 
-                FROM Voitures 
-                INNER JOIN Designer ON Voitures._designer_id = Designer.designer_id
-                WHERE Voitures.voiture_modele LIKE "%'.$texteAchercher .'%" ';
+               $req = 'SELECT Voitures.*, Designer.* 
+                        FROM Voitures 
+                        INNER JOIN Designer ON Voitures._designer_id = Designer.designer_id
+                        WHERE Voitures.voiture_modele LIKE :search
+                        OR Voitures.voiture_annee LIKE :search
+                        OR Voitures.type_moteur LIKE :search
+                        OR Voitures.nb_chevaux LIKE :search
+                        OR Voitures.nb_couple LIKE :search
+                        OR Voitures.nb_place LIKE :search
+                        OR Voitures.voiture_prix LIKE :search
+                        OR Designer.designer_nom LIKE :search
+                        OR Designer.designer_prenom LIKE :search
+                        OR Designer.designer_nationalite LIKE :search
+                        OR Voitures.type_nom LIKE :search';
                 
-                $req .= 'OR Voitures.voiture_annee LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Voitures.type_moteur LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Voitures.nb_chevaux LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Voitures.nb_couple LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Voitures.nb_place LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Voitures.voiture_prix LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Designer.designer_nom LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Designer.designer_prenom LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Designer.designer_nationalite LIKE "%'.$texteAchercher .'%" ';
-                $req .= 'OR Voitures.type_nom LIKE "%'.$texteAchercher .'%" ';
-
-                $resultat = $mabd->query($req);
+                $stmt = $mabd->prepare($req);
+                $stmt->execute([':search' => '%' . $recherche_verif . '%']);
+                $resultat = $stmt->fetchAll();
                 
                 echo '<div class="gconteneur">';
                     foreach ($resultat as $value) {
