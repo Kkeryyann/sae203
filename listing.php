@@ -1,8 +1,8 @@
         <?php
-
             $username = getenv('DB_USER');
             $password = getenv('DB_PASSWORD');
             $dbname = getenv('DB_NAME');
+
             // Appel du bloc Header et du Menu
             require ('header.php');
         ?>
